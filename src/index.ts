@@ -1,25 +1,15 @@
 import express, { Express } from "express";
 import http from "http";
 import morgan from "morgan";
+const cors = require('@koa/cors');
+
 import routes from "./routes/main";
 const router: Express = express();
 
 router.use(morgan("dev"));
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
-router.use((req, res, next) => {
-  res.header("*");
-  // res.header(
-  //   "Access-Control-Allow-Headers",
-  //   "origin, X-Requested-With,Content-Type,Accept, Authorization"
-  // );
-  // if (req.method === "OPTIONS") {
-  //   res.header("Access-Control-Allow-Methods", "GET PATCH DELETE POST");
-  //   return res.status(200).json({});
-  // }
-  next();
-});
-
+router.use(cors({ origin: '*' }));
 router.use(router.routes());
 
 router.use((req, res, next) => {
