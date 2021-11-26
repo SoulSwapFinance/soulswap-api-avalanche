@@ -20,7 +20,7 @@ router.use((req, res, next) => {
   next();
 });
 
-router.use("/", routes);
+router.use(router.routes());
 
 router.use((req, res, next) => {
   const error = new Error("not found");
