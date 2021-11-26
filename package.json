@@ -1,11 +1,8 @@
 {
   "name": "soulswap-api",
   "version": "1.0.0",
-  "description": "Rest API for coingecko integration",
+  "description": "Rest API for CG and CMC integration",
   "main": "src/index.ts",
-  "engines": {
-    "node": ">=12.0.0"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build/index.js",
