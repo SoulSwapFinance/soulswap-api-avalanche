@@ -1,6 +1,3 @@
-.serverless
-.build
+.now
 node_modules
-.env
-build
-dist
+.vercel
