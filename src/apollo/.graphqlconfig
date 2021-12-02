@@ -1,0 +1,15 @@
+{
+  "name": "SoulSwapFinance",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "SoulSwapFinance": {
+        "url": "https://api.thegraph.com/subgraphs/name/soulswapfinance/soulswap-exchange",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

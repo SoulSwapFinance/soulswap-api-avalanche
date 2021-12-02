@@ -1,0 +1,15 @@
+{
+  "name": "FTM Blocks",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "BSC Blocks": {
+        "url": "https://api.thegraph.com/subgraphs/name/matthewlilley/fantom-blocks",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}
