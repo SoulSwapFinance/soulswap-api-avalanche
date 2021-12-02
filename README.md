@@ -3,7 +3,7 @@
 The SoulSwap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface SoulSwap liquidity
 and volume information. All information is fetched from the underlying subgraphs.
 
-The API is designed around the CoinMarketCap
+The API is designed around the CoinMarketCap API
 [requirements document](https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg).
 
 
