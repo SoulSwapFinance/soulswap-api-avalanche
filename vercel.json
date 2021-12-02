@@ -1,6 +1,6 @@
 {
     "name": "soulswap-ftmapi",
-    "version": 3,
+    "version": 2,
     "alias": "ftmapi.soulswap.finance",
     "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
     "routes": [
