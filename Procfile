@@ -1,1 +1,0 @@
-eb: node build/index.js
