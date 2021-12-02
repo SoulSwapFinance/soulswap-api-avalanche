@@ -27,7 +27,7 @@ Results are edge cached for 15 minutes.
 
 ```json5
 {
-  "0x..._0x...": {                  // the asset ids of the BEP20 tokens (i.e. token addresses), joined by an underscore
+  "0x..._0x...": {                  // the asset ids of the ERC20 tokens (i.e. token addresses), joined by an underscore
     "last_price": "1.234",          // denominated in token0/token1
     "base_volume": "123.456",       // last 24h volume denominated in token0
     "quote_volume": "1234.56"       // last 24h volume denominated in token1
@@ -70,10 +70,10 @@ Results are edge cached for 24 hours.
 ```json5
 {
   // ...,
-  "0x...": {              // the address of the BEP20 token
-    "name": "...",        // not necesssarily included for BEP20 tokens
-    "symbol": "...",      // not necesssarily included for BEP20 tokens
-    "id": "0x...",        // the address of the BEP20 token
+  "0x...": {              // the address of the ERC20 token
+    "name": "...",        // not necesssarily included for ERC20 tokens
+    "symbol": "...",      // not necesssarily included for ERC20 tokens
+    "id": "0x...",        // the address of the ERC20 token
     "maker_fee": "0",     // always 0
     "taker_fee": "0.003", // always 0.003 i.e. .3%
   },
@@ -94,7 +94,7 @@ Results are edge cached for 1 minute.
 
 ```json5
 {
-  "0x..._0x...": {                    // the asset ids of FTM and BEP20 tokens, joined by an underscore
+  "0x..._0x...": {                    // the asset ids of FTM and ERC20 tokens, joined by an underscore
     "base_name": "...",             // token0 name
     "base_symbol": "...",           // token0 symbol
     "base_id": "0x...",             // token0 address
@@ -112,8 +112,10 @@ Results are edge cached for 1 minute.
 ## `/orderbook/:pair`
 
 Returns simulated orderbook data for the given SoulSwap pair.
+
 Since SoulSwap has a continuous orderbook, fixed amounts in an interval are chosen for bids and asks,
 and prices are derived from the SoulSwap formula (accounting for both slippage and fees paid to LPs).
+
 Results are edge cached for 15 minutes.
 
 ### Request
@@ -122,7 +124,7 @@ Results are edge cached for 15 minutes.
 
 ### URL Parameters
 
-- `pair`: The asset ids of two BEP20 tokens, joined by an underscore, e.g. `0x..._0x...`. The first token address is considered the base in the response.
+- `pair`: The asset ids of two ERC20 tokens, joined by an underscore, e.g. `0x..._0x...`. The first token address is considered the base in the response.
 
 ### Response
 
@@ -145,9 +147,11 @@ Results are edge cached for 15 minutes.
 ## `/trades/:pair`
 
 Returns all swaps in the last 24 hours for the given SoulSwap pair.
+
 Results are edge cached for 15 minutes.
 
 The pair address is the address of the two tokens in either order.
+
 The first address is considered the base in the response.
 
 Note because SoulSwap supports flash swaps and borrowing of both tokens in a pair, you may wish to exclude these
@@ -155,7 +159,7 @@ trade types (types `"???"` and `"borrow-both"`).
 
 ### URL Parameters
 
-- `pair`: The asset ids of two BEP20 tokens, joined by an underscore, e.g. `0x..._0x...`. The first token address is considered the base in the response.
+- `pair`: The asset ids of two ERC20 tokens, joined by an underscore, e.g. `0x..._0x...`. The first token address is considered the base in the response.
 
 ### Request
 
