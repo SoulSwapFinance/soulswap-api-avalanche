@@ -54,7 +54,7 @@ type Pair {
     burns(first: Int = 100, orderBy: Burn_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: Burn_filter): [Burn!]
     createdAtBlockNumber: BigInt!
     createdAtTimestamp: BigInt!
-    factory: BscswapFactory!
+    factory: soulSwapFactory!
     id: ID!
     liquidityPositions(first: Int = 100, orderBy: LiquidityPosition_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: LiquidityPosition_filter): [LiquidityPosition!]
     mints(first: Int = 100, orderBy: Mint_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: Mint_filter): [Mint!]
@@ -231,34 +231,34 @@ type Query {
         skip: Int = 0,
         where: Transaction_filter
     ): [Transaction!]!
-    soulswapDayData(
+    soulSwapDayData(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         id: ID!
-    ): BscswapDayData
-    soulswapDayDatas(
+    ): soulSwapDayData
+    soulSwapDayDatas(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         first: Int = 100,
-        orderBy: BscswapDayData_orderBy,
+        orderBy: soulSwapDayData_orderBy,
         orderDirection: OrderDirection,
         skip: Int = 0,
-        where: BscswapDayData_filter
-    ): [BscswapDayData!]!
-    soulswapFactories(
+        where: soulSwapDayData_filter
+    ): [soulSwapDayData!]!
+    soulSwapFactories(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         first: Int = 100,
-        orderBy: BscswapFactory_orderBy,
+        orderBy: soulSwapFactory_orderBy,
         orderDirection: OrderDirection,
         skip: Int = 0,
-        where: BscswapFactory_filter
-    ): [BscswapFactory!]!
-    soulswapFactory(
+        where: soulSwapFactory_filter
+    ): [soulSwapFactory!]!
+    soulSwapFactory(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         id: ID!
-    ): BscswapFactory
+    ): soulSwapFactory
     user(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
@@ -416,34 +416,34 @@ type Subscription {
         skip: Int = 0,
         where: Transaction_filter
     ): [Transaction!]!
-    soulswapDayData(
+    soulSwapDayData(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         id: ID!
-    ): BscswapDayData
-    soulswapDayDatas(
+    ): soulSwapDayData
+    soulSwapDayDatas(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         first: Int = 100,
-        orderBy: BscswapDayData_orderBy,
+        orderBy: soulSwapDayData_orderBy,
         orderDirection: OrderDirection,
         skip: Int = 0,
-        where: BscswapDayData_filter
-    ): [BscswapDayData!]!
-    soulswapFactories(
+        where: soulSwapDayData_filter
+    ): [soulSwapDayData!]!
+    soulSwapFactories(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         first: Int = 100,
-        orderBy: BscswapFactory_orderBy,
+        orderBy: soulSwapFactory_orderBy,
         orderDirection: OrderDirection,
         skip: Int = 0,
-        where: BscswapFactory_filter
-    ): [BscswapFactory!]!
-    soulswapFactory(
+        where: soulSwapFactory_filter
+    ): [soulSwapFactory!]!
+    soulSwapFactory(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         id: ID!
-    ): BscswapFactory
+    ): soulSwapFactory
     user(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
@@ -514,7 +514,7 @@ type Transaction {
     timestamp: BigInt!
 }
 
-type BscswapDayData {
+type soulSwapDayData {
     dailyVolumeFTM: BigDecimal!
     dailyVolumeUSD: BigDecimal!
     date: Int!
@@ -528,7 +528,7 @@ type BscswapDayData {
     txCount: BigInt!
 }
 
-type BscswapFactory {
+type soulSwapFactory {
     id: ID!
     mostLiquidTokens(first: Int = 100, orderBy: TokenDayData_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: TokenDayData_filter): [TokenDayData!]!
     pairCount: Int!
@@ -689,7 +689,7 @@ enum Transaction_orderBy {
     timestamp
 }
 
-enum BscswapDayData_orderBy {
+enum soulSwapDayData_orderBy {
     dailyVolumeFTM
     dailyVolumeUSD
     date
@@ -703,7 +703,7 @@ enum BscswapDayData_orderBy {
     txCount
 }
 
-enum BscswapFactory_orderBy {
+enum soulSwapFactory_orderBy {
     id
     mostLiquidTokens
     pairCount
@@ -1593,7 +1593,7 @@ input Transaction_filter {
     timestamp_not_in: [BigInt!]
 }
 
-input BscswapDayData_filter {
+input soulSwapDayData_filter {
     dailyVolumeFTM: BigDecimal
     dailyVolumeFTM_gt: BigDecimal
     dailyVolumeFTM_gte: BigDecimal
@@ -1680,7 +1680,7 @@ input BscswapDayData_filter {
     txCount_not_in: [BigInt!]
 }
 
-input BscswapFactory_filter {
+input soulSwapFactory_filter {
     id: ID
     id_gt: ID
     id_gte: ID

@@ -19,8 +19,8 @@ export interface Block_Height {
   readonly number?: Maybe<Scalars['Int']>;
 }
 
-export interface BscswapDayData {
-  readonly __typename?: 'BscswapDayData';
+export interface soulSwapDayData {
+  readonly __typename?: 'soulSwapDayData';
   readonly dailyVolumeFTM: Scalars['BigDecimal'];
   readonly dailyVolumeUSD: Scalars['BigDecimal'];
   readonly date: Scalars['Int'];
@@ -35,7 +35,7 @@ export interface BscswapDayData {
 }
 
 
-export interface BscswapDayDataMostLiquidTokensArgs {
+export interface soulSwapDayDataMostLiquidTokensArgs {
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<TokenDayData_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
@@ -43,7 +43,7 @@ export interface BscswapDayDataMostLiquidTokensArgs {
   where?: Maybe<TokenDayData_Filter>;
 }
 
-export interface BscswapDayData_Filter {
+export interface soulSwapDayData_Filter {
   readonly dailyVolumeFTM?: Maybe<Scalars['BigDecimal']>;
   readonly dailyVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>;
   readonly dailyVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>;
@@ -130,7 +130,7 @@ export interface BscswapDayData_Filter {
   readonly txCount_not_in?: Maybe<ReadonlyArray<Scalars['BigInt']>>;
 }
 
-export enum BscswapDayData_OrderBy {
+export enum soulSwapDayData_OrderBy {
   DailyVolumeFtm = 'dailyVolumeFTM',
   DailyVolumeUsd = 'dailyVolumeUSD',
   Date = 'date',
@@ -144,8 +144,8 @@ export enum BscswapDayData_OrderBy {
   TxCount = 'txCount'
 }
 
-export interface BscswapFactory {
-  readonly __typename?: 'BscswapFactory';
+export interface soulSwapFactory {
+  readonly __typename?: 'soulSwapFactory';
   readonly id: Scalars['ID'];
   readonly mostLiquidTokens: ReadonlyArray<TokenDayData>;
   readonly pairCount: Scalars['Int'];
@@ -158,7 +158,7 @@ export interface BscswapFactory {
 }
 
 
-export interface BscswapFactoryMostLiquidTokensArgs {
+export interface soulSwapFactoryMostLiquidTokensArgs {
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<TokenDayData_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
@@ -167,7 +167,7 @@ export interface BscswapFactoryMostLiquidTokensArgs {
 }
 
 
-export interface BscswapFactoryPairsArgs {
+export interface soulSwapFactoryPairsArgs {
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<Pair_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
@@ -175,7 +175,7 @@ export interface BscswapFactoryPairsArgs {
   where?: Maybe<Pair_Filter>;
 }
 
-export interface BscswapFactory_Filter {
+export interface soulSwapFactory_Filter {
   readonly id?: Maybe<Scalars['ID']>;
   readonly id_gt?: Maybe<Scalars['ID']>;
   readonly id_gte?: Maybe<Scalars['ID']>;
@@ -242,7 +242,7 @@ export interface BscswapFactory_Filter {
   readonly txCount_not_in?: Maybe<ReadonlyArray<Scalars['BigInt']>>;
 }
 
-export enum BscswapFactory_OrderBy {
+export enum soulSwapFactory_OrderBy {
   Id = 'id',
   MostLiquidTokens = 'mostLiquidTokens',
   PairCount = 'pairCount',
@@ -631,7 +631,7 @@ export interface Pair {
   readonly burns?: Maybe<ReadonlyArray<Burn>>;
   readonly createdAtBlockNumber: Scalars['BigInt'];
   readonly createdAtTimestamp: Scalars['BigInt'];
-  readonly factory: BscswapFactory;
+  readonly factory: soulSwapFactory;
   readonly id: Scalars['ID'];
   readonly liquidityPositions?: Maybe<ReadonlyArray<LiquidityPosition>>;
   readonly mints?: Maybe<ReadonlyArray<Mint>>;
@@ -1026,10 +1026,10 @@ export interface Query {
   readonly tokens: ReadonlyArray<Token>;
   readonly transaction?: Maybe<Transaction>;
   readonly transactions: ReadonlyArray<Transaction>;
-  readonly soulswapDayData?: Maybe<BscswapDayData>;
-  readonly soulswapDayDatas: ReadonlyArray<BscswapDayData>;
-  readonly soulswapFactories: ReadonlyArray<BscswapFactory>;
-  readonly soulswapFactory?: Maybe<BscswapFactory>;
+  readonly soulSwapDayData?: Maybe<soulSwapDayData>;
+  readonly soulSwapDayDatas: ReadonlyArray<soulSwapDayData>;
+  readonly soulSwapFactories: ReadonlyArray<soulSwapFactory>;
+  readonly soulSwapFactory?: Maybe<soulSwapFactory>;
   readonly user?: Maybe<User>;
   readonly users: ReadonlyArray<User>;
 }
@@ -1204,20 +1204,20 @@ export interface QuerySoulswapDayDataArgs {
 export interface QuerySoulswapDayDatasArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<BscswapDayData_OrderBy>;
+  orderBy?: Maybe<soulSwapDayData_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
   skip?: Maybe<Scalars['Int']>;
-  where?: Maybe<BscswapDayData_Filter>;
+  where?: Maybe<soulSwapDayData_Filter>;
 }
 
 
 export interface QuerySoulswapFactoriesArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<BscswapFactory_OrderBy>;
+  orderBy?: Maybe<soulSwapFactory_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
   skip?: Maybe<Scalars['Int']>;
-  where?: Maybe<BscswapFactory_Filter>;
+  where?: Maybe<soulSwapFactory_Filter>;
 }
 
 
@@ -1264,10 +1264,10 @@ export interface Subscription {
   readonly tokens: ReadonlyArray<Token>;
   readonly transaction?: Maybe<Transaction>;
   readonly transactions: ReadonlyArray<Transaction>;
-  readonly soulswapDayData?: Maybe<BscswapDayData>;
-  readonly soulswapDayDatas: ReadonlyArray<BscswapDayData>;
-  readonly soulswapFactories: ReadonlyArray<BscswapFactory>;
-  readonly soulswapFactory?: Maybe<BscswapFactory>;
+  readonly soulSwapDayData?: Maybe<soulSwapDayData>;
+  readonly soulSwapDayDatas: ReadonlyArray<soulSwapDayData>;
+  readonly soulSwapFactories: ReadonlyArray<soulSwapFactory>;
+  readonly soulSwapFactory?: Maybe<soulSwapFactory>;
   readonly user?: Maybe<User>;
   readonly users: ReadonlyArray<User>;
 }
@@ -1442,20 +1442,20 @@ export interface SubscriptionSoulswapDayDataArgs {
 export interface SubscriptionSoulswapDayDatasArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<BscswapDayData_OrderBy>;
+  orderBy?: Maybe<soulSwapDayData_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
   skip?: Maybe<Scalars['Int']>;
-  where?: Maybe<BscswapDayData_Filter>;
+  where?: Maybe<soulSwapDayData_Filter>;
 }
 
 
 export interface SubscriptionSoulswapFactoriesArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<BscswapFactory_OrderBy>;
+  orderBy?: Maybe<soulSwapFactory_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
   skip?: Maybe<Scalars['Int']>;
-  where?: Maybe<BscswapFactory_Filter>;
+  where?: Maybe<soulSwapFactory_Filter>;
 }
 
 
@@ -2101,8 +2101,8 @@ export type TotalLiquidityQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type TotalLiquidityQuery = (
   { readonly __typename?: 'Query' }
-  & { readonly soulswapFactories: ReadonlyArray<(
-    { readonly __typename?: 'BscswapFactory' }
-    & Pick<BscswapFactory, 'totalLiquidityUSD'>
+  & { readonly soulSwapFactories: ReadonlyArray<(
+    { readonly __typename?: 'soulSwapFactory' }
+    & Pick<soulSwapFactory, 'totalLiquidityUSD'>
   )> }
 );

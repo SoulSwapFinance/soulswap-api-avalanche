@@ -157,10 +157,10 @@ export interface Query {
   readonly tokens: readonly Token[]
   readonly transaction?: Maybe<Transaction>
   readonly transactions: readonly Transaction[]
-  readonly soulswapDayData?: Maybe<SoulSwapDayData>
-  readonly soulswapDayDatas: readonly SoulSwapDayData[]
-  readonly soulswapFactories: readonly SoulSwapFactory[]
-  readonly soulswapFactory?: Maybe<SoulSwapFactory>
+  readonly soulSwapDayData?: Maybe<SoulSwapDayData>
+  readonly soulSwapDayDatas: readonly SoulSwapDayData[]
+  readonly soulSwapFactories: readonly SoulSwapFactory[]
+  readonly soulSwapFactory?: Maybe<SoulSwapFactory>
   readonly user?: Maybe<User>
   readonly users: readonly User[]
 }
@@ -369,10 +369,10 @@ export interface Subscription {
   readonly tokens: readonly Token[]
   readonly transaction?: Maybe<Transaction>
   readonly transactions: readonly Transaction[]
-  readonly soulswapDayData?: Maybe<SoulSwapDayData>
-  readonly soulswapDayDatas: readonly SoulSwapDayData[]
-  readonly soulswapFactories: readonly SoulSwapFactory[]
-  readonly soulswapFactory?: Maybe<SoulSwapFactory>
+  readonly soulSwapDayData?: Maybe<SoulSwapDayData>
+  readonly soulSwapDayDatas: readonly SoulSwapDayData[]
+  readonly soulSwapFactories: readonly SoulSwapFactory[]
+  readonly soulSwapFactory?: Maybe<SoulSwapFactory>
   readonly user?: Maybe<User>
   readonly users: readonly User[]
 }
@@ -2009,7 +2009,7 @@ export type TotalLiquidityQueryVariables = Exact<{
 }>
 
 export type TotalLiquidityQuery = { readonly __typename?: 'Query' } & {
-  readonly soulswapFactories: readonly ({ readonly __typename?: 'SoulSwapFactory' } & Pick<
+  readonly soulSwapFactories: readonly ({ readonly __typename?: 'SoulSwapFactory' } & Pick<
     SoulSwapFactory,
     'totalLiquidityUSD'
   >)[]
