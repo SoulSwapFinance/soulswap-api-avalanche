@@ -1,7 +1,6 @@
 # SoulSwap API
 
-The SoulSwap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface SoulSwap liquidity
-and volume information. All information is fetched from the underlying subgraphs.
+The SoulSwap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface SoulSwap liquidity and volume information. All information is fetched from the underlying subgraphs.
 
 The API is designed around the CoinMarketCap API
 [requirements document](https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg).
@@ -12,7 +11,7 @@ The API is designed around the CoinMarketCap API
 All SoulSwap pairs consist of two different tokens. FTM is not a native currency in SoulSwap, and is represented
 only by WFTM in the pairs.
 
-The canonical WFTM address used by the SoulSwap interface is `0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83`.
+The canonical WAVAX address used by the SoulSwap interface is ``.
 
 ## [`/summary`](https://ftmapi.SoulSwap.finance/summary)
 
@@ -21,7 +20,7 @@ Results are edge cached for 15 minutes.
 
 ### Request
 
-`GET https://ftmapi.SoulSwap.finance/summary`
+`GET https://avaxapi.SoulSwap.finance/summary`
 
 ### Response
 
@@ -44,7 +43,7 @@ Results are edge cached for 24 hours.
 
 ### Request
 
-`GET https://ftmapi.SoulSwap.finance/totalliquidity`
+`GET https://avaxapi.SoulSwap.finance/totalliquidity`
 
 ### Response
 
@@ -63,7 +62,7 @@ Results are edge cached for 24 hours.
 
 ### Request
 
-`GET https://ftmapi.SoulSwap.finance/assets`
+`GET https://avaxapi.SoulSwap.finance/assets`
 
 ### Response
 
@@ -88,7 +87,7 @@ Results are edge cached for 1 minute.
 
 ### Request
 
-`GET https://ftmapi.SoulSwap.finance/tickers`
+`GET https://avaxapi.SoulSwap.finance/tickers`
 
 ### Response
 
@@ -118,7 +117,7 @@ Results are edge cached for 15 minutes.
 
 ### Request
 
-`GET https://ftmapi.SoulSwap.finance/orderbook/:pair`
+`GET https://avaxapi.SoulSwap.finance/orderbook/:pair`
 
 ### URL Parameters
 
@@ -155,11 +154,11 @@ trade types (types `"???"` and `"borrow-both"`).
 
 ### URL Parameters
 
-- `pair`: The asset ids of two BEP20 tokens, joined by an underscore, e.g. `0x..._0x...`. The first token address is considered the base in the response.
+- `pair`: The asset ids of two ERC20 tokens, joined by an underscore, e.g. `0x..._0x...`. The first token address is considered the base in the response.
 
 ### Request
 
-`GET https://ftmapi.SoulSwap.finance/trades/:pair`
+`GET https://avaxapi.SoulSwap.finance/trades/:pair`
 
 ### Response
 
