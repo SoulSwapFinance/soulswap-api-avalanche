@@ -156,7 +156,7 @@ trade types (types `"???"` and `"borrow-both"`).
 
 - `pair`: The asset ids of two ERC20 tokens, joined by an underscore, e.g. `0x..._0x...`. The first token address is considered the base in the response.
 
-### Request
+### Requests
 
 `GET https://avaxapi.SoulSwap.finance/trades/:pair`
 
