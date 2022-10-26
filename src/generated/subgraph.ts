@@ -14,7 +14,7 @@ export interface Scalars {
 
 export interface Bundle {
   readonly __typename?: 'Bundle'
-  readonly ftmPrice: Scalars['BigDecimal']
+  readonly avaxPrice: Scalars['BigDecimal']
   readonly id: Scalars['ID']
 }
 
@@ -72,7 +72,7 @@ export interface Pair {
   readonly mints?: Maybe<readonly Mint[]>
   readonly reserve0: Scalars['BigDecimal']
   readonly reserve1: Scalars['BigDecimal']
-  readonly reserveFTM: Scalars['BigDecimal']
+  readonly reserveAVAX: Scalars['BigDecimal']
   readonly reserveUSD: Scalars['BigDecimal']
   readonly swaps?: Maybe<readonly Swap[]>
   readonly token0: Token
@@ -80,7 +80,7 @@ export interface Pair {
   readonly token1: Token
   readonly token1Price: Scalars['BigDecimal']
   readonly totalSupply: Scalars['BigDecimal']
-  readonly trackedReserveFTM: Scalars['BigDecimal']
+  readonly trackedReserveAVAX: Scalars['BigDecimal']
   readonly txCount: Scalars['BigInt']
   readonly volumeToken0: Scalars['BigDecimal']
   readonly volumeToken1: Scalars['BigDecimal']
@@ -579,7 +579,7 @@ export interface Token {
   readonly __typename?: 'Token'
   readonly allPairs?: Maybe<readonly Pair[]>
   readonly decimals: Scalars['BigInt']
-  readonly derivedFTM?: Maybe<Scalars['BigDecimal']>
+  readonly derivedAVAX?: Maybe<Scalars['BigDecimal']>
   readonly id: Scalars['ID']
   readonly mostLiquidPairs: readonly Maybe<PairDayData>[]
   readonly name: Scalars['String']
@@ -609,7 +609,7 @@ export interface TokenMostLiquidPairsArgs {
 export interface TokenDayData {
   readonly __typename?: 'TokenDayData'
   readonly dailyTxns: Scalars['BigInt']
-  readonly dailyVolumeFTM: Scalars['BigDecimal']
+  readonly dailyVolumeAVAX: Scalars['BigDecimal']
   readonly dailyVolumeToken: Scalars['BigDecimal']
   readonly dailyVolumeUSD: Scalars['BigDecimal']
   readonly date: Scalars['Int']
@@ -618,7 +618,7 @@ export interface TokenDayData {
   readonly mostLiquidPairs: readonly PairDayData[]
   readonly priceUSD: Scalars['BigDecimal']
   readonly token: Token
-  readonly totalLiquidityFTM: Scalars['BigDecimal']
+  readonly totalLiquidityAVAX: Scalars['BigDecimal']
   readonly totalLiquidityToken: Scalars['BigDecimal']
   readonly totalLiquidityUSD: Scalars['BigDecimal']
 }
@@ -667,15 +667,15 @@ export interface TransactionSwapsArgs {
 
 export interface SoulSwapDayData {
   readonly __typename?: 'SoulSwapDayData'
-  readonly dailyVolumeFTM: Scalars['BigDecimal']
+  readonly dailyVolumeAVAX: Scalars['BigDecimal']
   readonly dailyVolumeUSD: Scalars['BigDecimal']
   readonly date: Scalars['Int']
   readonly id: Scalars['ID']
   readonly maxStored?: Maybe<Scalars['Int']>
   readonly mostLiquidTokens: readonly TokenDayData[]
-  readonly totalLiquidityFTM: Scalars['BigDecimal']
+  readonly totalLiquidityAVAX: Scalars['BigDecimal']
   readonly totalLiquidityUSD: Scalars['BigDecimal']
-  readonly totalVolumeFTM: Scalars['BigDecimal']
+  readonly totalVolumeAVAX: Scalars['BigDecimal']
   readonly totalVolumeUSD: Scalars['BigDecimal']
   readonly txCount: Scalars['BigInt']
 }
@@ -694,9 +694,9 @@ export interface SoulSwapFactory {
   readonly mostLiquidTokens: readonly TokenDayData[]
   readonly pairCount: Scalars['Int']
   readonly pairs: readonly Maybe<Pair>[]
-  readonly totalLiquidityFTM: Scalars['BigDecimal']
+  readonly totalLiquidityAVAX: Scalars['BigDecimal']
   readonly totalLiquidityUSD: Scalars['BigDecimal']
-  readonly totalVolumeFTM: Scalars['BigDecimal']
+  readonly totalVolumeAVAX: Scalars['BigDecimal']
   readonly totalVolumeUSD: Scalars['BigDecimal']
   readonly txCount: Scalars['BigInt']
 }
@@ -732,7 +732,7 @@ export interface UserLiquidityPositionsArgs {
 }
 
 export enum BundleOrderBy {
-  FtmPrice = 'ftmPrice',
+  AvaxPrice = 'avaxPrice',
   Id = 'id'
 }
 
@@ -806,7 +806,7 @@ export enum PairOrderBy {
   Mints = 'mints',
   Reserve0 = 'reserve0',
   Reserve1 = 'reserve1',
-  ReserveFtm = 'reserveFTM',
+  ReserveAvax = 'reserveAVAX',
   ReserveUsd = 'reserveUSD',
   Swaps = 'swaps',
   Token0 = 'token0',
@@ -814,7 +814,7 @@ export enum PairOrderBy {
   Token1 = 'token1',
   Token1Price = 'token1Price',
   TotalSupply = 'totalSupply',
-  TrackedReserveFtm = 'trackedReserveFTM',
+  TrackedReserveAvax = 'trackedReserveAVAX',
   TxCount = 'txCount',
   VolumeToken0 = 'volumeToken0',
   VolumeToken1 = 'volumeToken1',
@@ -838,7 +838,7 @@ export enum SwapOrderBy {
 
 export enum TokenDayDataOrderBy {
   DailyTxns = 'dailyTxns',
-  DailyVolumeFtm = 'dailyVolumeFTM',
+  DailyVolumeAvax = 'dailyVolumeAVAX',
   DailyVolumeToken = 'dailyVolumeToken',
   DailyVolumeUsd = 'dailyVolumeUSD',
   Date = 'date',
@@ -847,7 +847,7 @@ export enum TokenDayDataOrderBy {
   MostLiquidPairs = 'mostLiquidPairs',
   PriceUsd = 'priceUSD',
   Token = 'token',
-  TotalLiquidityFtm = 'totalLiquidityFTM',
+  TotalLiquidityAvax = 'totalLiquidityAVAX',
   TotalLiquidityToken = 'totalLiquidityToken',
   TotalLiquidityUsd = 'totalLiquidityUSD'
 }
@@ -855,7 +855,7 @@ export enum TokenDayDataOrderBy {
 export enum TokenOrderBy {
   AllPairs = 'allPairs',
   Decimals = 'decimals',
-  DerivedFtm = 'derivedFTM',
+  DerivedAvax = 'derivedAVAX',
   Id = 'id',
   MostLiquidPairs = 'mostLiquidPairs',
   Name = 'name',
@@ -876,15 +876,15 @@ export enum TransactionOrderBy {
 }
 
 export enum SoulSwapDayDataOrderBy {
-  DailyVolumeFtm = 'dailyVolumeFTM',
+  DailyVolumeAvax = 'dailyVolumeAVAX',
   DailyVolumeUsd = 'dailyVolumeUSD',
   Date = 'date',
   Id = 'id',
   MaxStored = 'maxStored',
   MostLiquidTokens = 'mostLiquidTokens',
-  TotalLiquidityFtm = 'totalLiquidityFTM',
+  TotalLiquidityAvax = 'totalLiquidityAVAX',
   TotalLiquidityUsd = 'totalLiquidityUSD',
-  TotalVolumeFtm = 'totalVolumeFTM',
+  TotalVolumeAvax = 'totalVolumeAVAX',
   TotalVolumeUsd = 'totalVolumeUSD',
   TxCount = 'txCount'
 }
@@ -894,9 +894,9 @@ export enum SoulSwapFactoryOrderBy {
   MostLiquidTokens = 'mostLiquidTokens',
   PairCount = 'pairCount',
   Pairs = 'pairs',
-  TotalLiquidityFtm = 'totalLiquidityFTM',
+  TotalLiquidityAvax = 'totalLiquidityAVAX',
   TotalLiquidityUsd = 'totalLiquidityUSD',
-  TotalVolumeFtm = 'totalVolumeFTM',
+  TotalVolumeAvax = 'totalVolumeAVAX',
   TotalVolumeUsd = 'totalVolumeUSD',
   TxCount = 'txCount'
 }
@@ -912,14 +912,14 @@ export interface BlockHeight {
 }
 
 export interface BundleFiler {
-  readonly ftmPrice?: Maybe<Scalars['BigDecimal']>
-  readonly ftmPrice_gt?: Maybe<Scalars['BigDecimal']>
-  readonly ftmPrice_gte?: Maybe<Scalars['BigDecimal']>
-  readonly ftmPrice_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly ftmPrice_lt?: Maybe<Scalars['BigDecimal']>
-  readonly ftmPrice_lte?: Maybe<Scalars['BigDecimal']>
-  readonly ftmPrice_not?: Maybe<Scalars['BigDecimal']>
-  readonly ftmPrice_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly avaxPrice?: Maybe<Scalars['BigDecimal']>
+  readonly avaxPrice_gt?: Maybe<Scalars['BigDecimal']>
+  readonly avaxPrice_gte?: Maybe<Scalars['BigDecimal']>
+  readonly avaxPrice_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly avaxPrice_lt?: Maybe<Scalars['BigDecimal']>
+  readonly avaxPrice_lte?: Maybe<Scalars['BigDecimal']>
+  readonly avaxPrice_not?: Maybe<Scalars['BigDecimal']>
+  readonly avaxPrice_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly id?: Maybe<Scalars['ID']>
   readonly id_gt?: Maybe<Scalars['ID']>
   readonly id_gte?: Maybe<Scalars['ID']>
@@ -1333,14 +1333,14 @@ export interface PairFilter {
   readonly reserve1_lte?: Maybe<Scalars['BigDecimal']>
   readonly reserve1_not?: Maybe<Scalars['BigDecimal']>
   readonly reserve1_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly reserveFTM?: Maybe<Scalars['BigDecimal']>
-  readonly reserveFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly reserveFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly reserveFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly reserveFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly reserveFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly reserveFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly reserveFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly reserveAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly reserveAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly reserveAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly reserveAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly reserveAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly reserveAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly reserveAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly reserveAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly reserveUSD?: Maybe<Scalars['BigDecimal']>
   readonly reserveUSD_gt?: Maybe<Scalars['BigDecimal']>
   readonly reserveUSD_gte?: Maybe<Scalars['BigDecimal']>
@@ -1401,14 +1401,14 @@ export interface PairFilter {
   readonly totalSupply_lte?: Maybe<Scalars['BigDecimal']>
   readonly totalSupply_not?: Maybe<Scalars['BigDecimal']>
   readonly totalSupply_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly trackedReserveFTM?: Maybe<Scalars['BigDecimal']>
-  readonly trackedReserveFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly trackedReserveFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly trackedReserveFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly trackedReserveFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly trackedReserveFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly trackedReserveFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly trackedReserveFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly trackedReserveAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly trackedReserveAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly trackedReserveAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly trackedReserveAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly trackedReserveAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly trackedReserveAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly trackedReserveAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly trackedReserveAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly txCount?: Maybe<Scalars['BigInt']>
   readonly txCount_gt?: Maybe<Scalars['BigInt']>
   readonly txCount_gte?: Maybe<Scalars['BigInt']>
@@ -1545,14 +1545,14 @@ export interface TokenDayDataFilter {
   readonly dailyTxns_lte?: Maybe<Scalars['BigInt']>
   readonly dailyTxns_not?: Maybe<Scalars['BigInt']>
   readonly dailyTxns_not_in?: Maybe<readonly Scalars['BigInt'][]>
-  readonly dailyVolumeFTM?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly dailyVolumeFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly dailyVolumeAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly dailyVolumeAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly dailyVolumeToken?: Maybe<Scalars['BigDecimal']>
   readonly dailyVolumeToken_gt?: Maybe<Scalars['BigDecimal']>
   readonly dailyVolumeToken_gte?: Maybe<Scalars['BigDecimal']>
@@ -1619,14 +1619,14 @@ export interface TokenDayDataFilter {
   readonly token_not_in?: Maybe<readonly Scalars['String'][]>
   readonly token_not_starts_with?: Maybe<Scalars['String']>
   readonly token_starts_with?: Maybe<Scalars['String']>
-  readonly totalLiquidityFTM?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly totalLiquidityFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalLiquidityAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalLiquidityAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly totalLiquidityToken?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityToken_gt?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityToken_gte?: Maybe<Scalars['BigDecimal']>
@@ -1658,14 +1658,14 @@ export interface TokenFilter {
   readonly decimals_lte?: Maybe<Scalars['BigInt']>
   readonly decimals_not?: Maybe<Scalars['BigInt']>
   readonly decimals_not_in?: Maybe<readonly Scalars['BigInt'][]>
-  readonly derivedFTM?: Maybe<Scalars['BigDecimal']>
-  readonly derivedFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly derivedFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly derivedFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly derivedFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly derivedFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly derivedFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly derivedFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly derivedAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly derivedAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly derivedAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly derivedAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly derivedAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly derivedAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly derivedAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly derivedAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly id?: Maybe<Scalars['ID']>
   readonly id_gt?: Maybe<Scalars['ID']>
   readonly id_gte?: Maybe<Scalars['ID']>
@@ -1780,14 +1780,14 @@ export interface TransactionFilter {
 }
 
 export interface SoulSwapDayDataFilter {
-  readonly dailyVolumeFTM?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly dailyVolumeFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly dailyVolumeFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly dailyVolumeAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly dailyVolumeAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly dailyVolumeAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly dailyVolumeUSD?: Maybe<Scalars['BigDecimal']>
   readonly dailyVolumeUSD_gt?: Maybe<Scalars['BigDecimal']>
   readonly dailyVolumeUSD_gte?: Maybe<Scalars['BigDecimal']>
@@ -1824,14 +1824,14 @@ export interface SoulSwapDayDataFilter {
   readonly mostLiquidTokens_contains?: Maybe<readonly Scalars['String'][]>
   readonly mostLiquidTokens_not?: Maybe<readonly Scalars['String'][]>
   readonly mostLiquidTokens_not_contains?: Maybe<readonly Scalars['String'][]>
-  readonly totalLiquidityFTM?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly totalLiquidityFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalLiquidityAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalLiquidityAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly totalLiquidityUSD?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityUSD_gt?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityUSD_gte?: Maybe<Scalars['BigDecimal']>
@@ -1840,14 +1840,14 @@ export interface SoulSwapDayDataFilter {
   readonly totalLiquidityUSD_lte?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityUSD_not?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityUSD_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly totalVolumeFTM?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly totalVolumeFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalVolumeAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalVolumeAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly totalVolumeUSD?: Maybe<Scalars['BigDecimal']>
   readonly totalVolumeUSD_gt?: Maybe<Scalars['BigDecimal']>
   readonly totalVolumeUSD_gte?: Maybe<Scalars['BigDecimal']>
@@ -1891,14 +1891,14 @@ export interface SoulSwapFactoryFilter {
   readonly pairs_contains?: Maybe<readonly Scalars['String'][]>
   readonly pairs_not?: Maybe<readonly Scalars['String'][]>
   readonly pairs_not_contains?: Maybe<readonly Scalars['String'][]>
-  readonly totalLiquidityFTM?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly totalLiquidityFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly totalLiquidityFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalLiquidityAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalLiquidityAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly totalLiquidityAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly totalLiquidityUSD?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityUSD_gt?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityUSD_gte?: Maybe<Scalars['BigDecimal']>
@@ -1907,14 +1907,14 @@ export interface SoulSwapFactoryFilter {
   readonly totalLiquidityUSD_lte?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityUSD_not?: Maybe<Scalars['BigDecimal']>
   readonly totalLiquidityUSD_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly totalVolumeFTM?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_in?: Maybe<readonly Scalars['BigDecimal'][]>
-  readonly totalVolumeFTM_lt?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_lte?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_not?: Maybe<Scalars['BigDecimal']>
-  readonly totalVolumeFTM_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalVolumeAVAX?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_gt?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_gte?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_in?: Maybe<readonly Scalars['BigDecimal'][]>
+  readonly totalVolumeAVAX_lt?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_lte?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_not?: Maybe<Scalars['BigDecimal']>
+  readonly totalVolumeAVAX_not_in?: Maybe<readonly Scalars['BigDecimal'][]>
   readonly totalVolumeUSD?: Maybe<Scalars['BigDecimal']>
   readonly totalVolumeUSD_gt?: Maybe<Scalars['BigDecimal']>
   readonly totalVolumeUSD_gte?: Maybe<Scalars['BigDecimal']>
