@@ -22,6 +22,7 @@
         "dest": "/src/trades.ts?pair=$pair",
         "methods": ["GET"]
       },
+      {"src": "/", "dest": "/src/api.ts"},
       {"src": "/.*", "dest": "/src/404.ts"}
     ]
   }
